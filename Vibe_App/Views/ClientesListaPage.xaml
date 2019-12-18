@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Vibe_App.Views.ClientesListaPage"
+             Title="Meus Clientes"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Margin="5, 5">
+            <ListView ItemsSource="{Binding Clientes}" 
+                      IsPullToRefreshEnabled="True" 
+                      RefreshCommand="{Binding Refresh}" 
+                      IsRefreshing="{Binding IsRefreshing}" 
+                      HasUnevenRows="True"
+                      SelectedItem="{Binding Cliente}"
+                      CachingStrategy="RecycleElement"
+                      SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5">
+                                <Frame>
+                                    <StackLayout>
+                                        <Label Text ="{Binding Nome, StringFormat='Cliente: {0}'}"/>
+                                        <Label Text ="{Binding Cpf, StringFormat= 'CPF: {0}'}"/>
+                                        <Label Text ="{Binding Id,StringFormat = 'Id: {0}'}"/>
+                                        <Label Text ="{Binding Especial,StringFormat = 'Especial: {0}'}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

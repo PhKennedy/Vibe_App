@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
+             mc:Ignorable="d"
+             x:Class="Vibe_App.Views.RegistroPage"
+             Title="Registro" 
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Margin="10,10">           
+            <Entry Placeholder="CPF"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="Center"
+               Text="{Binding Cpf}"
+               Keyboard="Numeric">
+                <Entry.Behaviors>
+                    <behaviorPack:CPFValidationBehavior/>
+                    <behaviorPack:MaskedBehavior Mask="XXX.XXX.XXX-XX"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Entry Placeholder="Nome"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   Text="{Binding Nome}"/>
+            <Entry Placeholder="Nascimento"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   Text="{Binding Nascimento}"
+                   Keyboard="Numeric"
+                   MaxLength="10">
+                <Entry.Behaviors>
+                    <behaviorPack:MaskedBehavior Mask="XX/XX/XXXX"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Entry Placeholder="Senha"
+                   IsPassword="True"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   Text="{Binding Senha}"/>
+            <Entry Placeholder="Confirmar Senha"
+                   IsPassword="True"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"
+                   Text="{Binding ConfirmacaoSenha}"/>
+            <ActivityIndicator IsRunning="{Binding IsSignin}"
+                               Color="DeepSkyBlue"/>
+            <Button Text="Registrar"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="EndAndExpand"
+                    Command="{Binding Registrar}"
+                    BackgroundColor="DeepSkyBlue"
+                    TextColor="White"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

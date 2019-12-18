@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:behaviorPack="clr-namespace:Xamarin.Forms.BehaviorValidationPack;assembly=Xamarin.Forms.BehaviorValidationPack"
+             mc:Ignorable="d"
+             x:Class="Vibe_App.LoginPage"
+             Title="Vibe"
+             BackgroundColor="White">
+    <StackLayout Margin="10,20">
+        <Image Source="LogoVibe.PNG" 
+               Aspect="AspectFit"/>
+        <Entry Placeholder="CPF"
+               WidthRequest="250"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="Center"
+               Text="{Binding Cpf}"
+               Keyboard="Numeric">
+            <Entry.Behaviors>
+                <behaviorPack:MaskedBehavior Mask="XXX.XXX.XXX-XX"/>
+            </Entry.Behaviors>
+        </Entry>
+        <Entry Placeholder="Senha"
+               IsPassword="True"
+               WidthRequest="250"
+               HorizontalOptions="CenterAndExpand"
+               VerticalOptions="Fill"
+               Text="{Binding Senha}"/>
+        <ActivityIndicator IsRunning="{Binding IsLogging}"
+                           Color="DeepSkyBlue" />
+        <Button Text="Login"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="EndAndExpand"
+                Command="{Binding Login}"
+                BackgroundColor="DeepSkyBlue"
+                TextColor="White"/>
+        <Button Text="Registrar-me"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="End"
+                Command="{Binding CriarUser}"
+                BackgroundColor="DeepSkyBlue"
+                TextColor="White"/>
+    </StackLayout>
+</ContentPage>

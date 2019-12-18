@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Vibe_App.Views.ContaDetalhesPage"
+             Title="Minha conta"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Nome" 
+                   FontSize="Title"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="Center" 
+                   FontAttributes="Bold"
+                   TextColor="Black"/>
+            <Label Text="{Binding Nome}"
+                   FontSize="Large"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center"
+                   TextColor="Black"/>
+            <Label Text="CPF"
+                   FontSize="Title"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   FontAttributes="Bold"/>
+            <Label Text="{Binding Cpf}"
+                   FontSize="Large"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center"
+                   TextColor="Black"/>
+            <Label Text="Nascimento"
+                   FontSize="Title"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   FontAttributes="Bold"/>
+            <Label Text="{Binding Nascimento, StringFormat='{0:dd/MM/yyyy}'}"
+                   FontSize="Large"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center"
+                   TextColor="Black"/>
+            <Button Text="Sair"
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding Sair}"
+                    BackgroundColor="DeepSkyBlue"
+                    TextColor="White"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

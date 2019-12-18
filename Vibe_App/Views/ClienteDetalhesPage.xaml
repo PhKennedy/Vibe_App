@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Vibe_App.Views.ClienteDetalhesPage"
+             Title="Detalhes"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Padding="10" >
+            <Frame>
+                <StackLayout>
+                    <Label Text="{Binding NomeCliente}"
+                           FontSize="Large" 
+                           TextColor="Black" 
+                           FontAttributes="Bold" 
+                           VerticalOptions="Start"/>
+                    <Label Text="{Binding Cpf,StringFormat='CPF: {0}'}" 
+                           TextColor="Black"/>
+                    <Label Text="{Binding Id, StringFormat='Id: {0}'}"
+                           TextColor="Black"/>
+                    <Label Text="{Binding Especial, StringFormat='Especial: {0}'}"
+                           TextColor="Black"/>
+                    <Frame HeightRequest="250" Margin="0" Padding="0">
+                        <Image Source="{Binding ImageSource}"
+                    Aspect="Fill"/>
+                    </Frame>
+                </StackLayout>
+            </Frame>
+            <Label Text="{Binding Empresa,StringFormat='Empresa: {0}'}" 
+                   TextColor="Black" 
+                   FontSize="Medium"/>
+            <Label Text="{Binding Cidade, StringFormat='Cidade: {0}'}" 
+                   TextColor="Black" 
+                   FontSize="Medium"/>
+            <Label Text="{Binding Endereco, StringFormat='Endereço: {0}'}" 
+                   TextColor="Black" 
+                   FontSize="Medium"/>
+            <Label Text="{Binding Numero, StringFormat='Número: {0}'}" 
+                   TextColor="Black"
+                   FontSize="Medium"/>
+            <Label Text="{Binding Complemento,StringFormat='Complemento: {0}'}" 
+                   TextColor="Black"
+                   FontSize="Medium"/>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
