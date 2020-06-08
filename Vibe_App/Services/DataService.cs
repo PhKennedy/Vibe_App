@@ -18,14 +18,14 @@ namespace Vibe_App.Services
         private readonly string uri = "https://vibeselecao.azurewebsites.net/api";
         private static readonly HttpClient Client = new HttpClient();
         private readonly Criptografia Criptografia = new Criptografia();
-        private readonly string AcessKey = CrossSecureStorage.Current.GetValue("Token");
+        private readonly string AccessKey = CrossSecureStorage.Current.GetValue("Token");
         private readonly string CurrentCpfValue = CrossSecureStorage.Current.GetValue("CpfUsuario");
         private readonly string CurrentPassword = CrossSecureStorage.Current.GetValue("SenhaUsuario");
         private readonly string MensagemErro = "Erro de rede ou serviço não disponível";
         private ServerResult ServerResponse { get; set; }
 
 
-        //Existe um laço nos métodos de requisição e dentro desse laço o método "Autenticar" é chamado para refazer a validação da token, caso a mesma tenha expirado.
+        //Existe um laço nos métodos de requisição e dentro desse laço o método "Autenticar" é chamado para refazer a validação da token, caso o mesmo tenha expirado.
         public async Task<string> Autenticar(string cpf, string senha)
         {
             try
